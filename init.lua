@@ -7,15 +7,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
   vim.cmd [[packadd packer.nvim]]
 end
-
 --- startup and add configure plugins
 return require('packer').startup(function(use)
   local use = use
   -- add you plugins here like:
   --------------nvim-cmp------------------
   use 'neovim/nvim-lspconfig'
-  use {"williamboman/nvim-lsp-installer",
-  require("nvim-lsp-installer").setup {}}
+  use "williamboman/nvim-lsp-installer"
   use "rafamadriz/friendly-snippets"
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
@@ -30,18 +28,22 @@ return require('packer').startup(function(use)
     -- you can configure Hop the way you like here; see :h hop-config
     require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
   }
+
   --------------neoscroll.nvim------------
   use({
       "karb94/neoscroll.nvim",
       event = "VimEnter"
     })
+
   --------------neoformat-----------------
   use 'sbdchd/neoformat'
+
   --------------wilder.nvim----------------
-  -- The missing auto-completion for cmdline!
   use({"gelguy/wilder.nvim", opt = true, setup = [[vim.cmd('packadd wilder.nvim')]]})
+  
   ---------better-escape.vim---------------
   use({ "jdhao/better-escape.vim", event = { "InsertEnter" } })
+  
   ----------------autopairs----------------
   use {
 	"windwp/nvim-autopairs",
@@ -52,23 +54,25 @@ return require('packer').startup(function(use)
   use { "catppuccin/nvim", as = "catppuccin" }
   require("catppuccin").setup()
   vim.cmd [[colorscheme catppuccin]]
+  
   ----------------------------------
+  -- https://github.com/windwp/nvim-autopairs
+  require('nvim-autopairs').setup()
+
+  -----------feline.nvim------------
+  use 'feline-nvim/feline.nvim'
+
   if packer_bootstrap then
     require('packer').sync()
     end
-
 
 -------cmp setup --------
 local cmp = require'cmp'
 
   cmp.setup({
     snippet = {
-      -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
       end,
     },
     window = {
@@ -84,10 +88,7 @@ local cmp = require'cmp'
     }),
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
       { name = 'luasnip' }, -- For luasnip users.
-      -- { name = 'ultisnips' }, -- For ultisnips users.
-      -- { name = 'snippy' }, -- For snippy users.
     }, {
       { name = 'buffer' },
     })
@@ -122,10 +123,12 @@ local cmp = require'cmp'
 
   -- Set up lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-   require('lspconfig')['ccls'].setup {
-    capabilities = capabilities
+  servers = {"ccls"
   }
--- https://github.com/windwp/nvim-autopairs
-require('nvim-autopairs').setup()
+  for _,server in ipairs(servers) do 
+    require('lspconfig')[server].setup {
+    capabilities = capabilities 
+    }
+    end
   end
 )
