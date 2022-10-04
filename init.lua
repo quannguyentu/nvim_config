@@ -10,6 +10,11 @@ end
 --- startup and add configure plugins
 return require('packer').startup(function(use)
   local use = use
+
+-- Load lua path
+  local lua_path = function(name)
+    return string.format("require'plugins.%s'", name)
+  end
   -- add you plugins here like:
   --------------nvim-cmp------------------
   use 'neovim/nvim-lspconfig'
@@ -49,18 +54,24 @@ return require('packer').startup(function(use)
 	"windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {}
     end}
-
   ----------catppuccin--------------
   use { "catppuccin/nvim", as = "catppuccin" }
-  require("catppuccin").setup()
+  -----------gruvbox-baby-----------
+  use 'luisiacc/gruvbox-baby'
   vim.cmd [[colorscheme catppuccin]]
   
-  ----------------------------------
-  -- https://github.com/windwp/nvim-autopairs
-  require('nvim-autopairs').setup()
-
   -----------feline.nvim------------
-  use 'feline-nvim/feline.nvim'
+  use {'feline-nvim/feline.nvim'}
+  --use 'kyazdani42/nvim-web-devicons'
+  --local ctp_feline = require('catppuccin.groups.integrations.feline')
+  --ctp_feline.setup()
+  require'feline'.setup()
+  ----------nvim-tree---------------
+  use {
+  'kyazdani42/nvim-tree.lua',
+  tag = 'nightly' -- optional, updated every week. (see issue #1193)
+}
+  require'nvim-tree'.setup()
 
   if packer_bootstrap then
     require('packer').sync()
