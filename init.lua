@@ -46,19 +46,16 @@ return require('packer').startup(function(use)
   
   ----------------autopairs----------------
   use {
-	"windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {}
-    end}
+	"windwp/nvim-autopairs"}
 
   ----------catppuccin--------------
-  use { "catppuccin/nvim", as = "catppuccin" }
-  require("catppuccin").setup()
-  vim.cmd [[colorscheme catppuccin]]
-  
-  ----------------------------------
-  -- https://github.com/windwp/nvim-autopairs
-  require('nvim-autopairs').setup()
-
+  --use { "catppuccin/nvim", as = "catppuccin" }
+  --require("catppuccin").setup()
+  --vim.cmd [[colorscheme catppuccin]]
+ 
+  ----------gruv-box----------------
+  use 'sainnhe/gruvbox-material'
+  vim.cmd [[colorscheme gruvbox-material]]
   -----------feline.nvim------------
   use 'feline-nvim/feline.nvim'
 
@@ -122,7 +119,7 @@ local cmp = require'cmp'
   })
 
   -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
   servers = {"ccls"
   }
   for _,server in ipairs(servers) do 
