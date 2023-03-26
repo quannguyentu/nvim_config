@@ -1,5 +1,6 @@
 return{  
-  'neovim/nvim-lspconfig',
+  {'neovim/nvim-lspconfig',
+  dependencies = 'mason-lspconfig.nvim'},
   "williamboman/nvim-lsp-installer",
   "rafamadriz/friendly-snippets",
   'L3MON4D3/LuaSnip',
@@ -68,7 +69,7 @@ return{
   servers = {"ccls",
   "pyright",
   "gopls",
-  "bashls"
+  "lua_ls"
   }
   for _,server in ipairs(servers) do 
     require('lspconfig')[server].setup {
