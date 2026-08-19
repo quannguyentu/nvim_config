@@ -105,9 +105,10 @@ Plugins install automatically on first launch via lazy.nvim.
 ## TODO / Ideas
 
 - [ ] Install all initial listed plugins.
+- [ ] Automate getting plugins list from lazy.nvim for documentation
 
 ## Changelog
 
 > Optional: track notable changes over time.
 
-- **08/18/2025** — Initial config setup + README.md
+- **08/18/2025** — Initial config setup README.md
