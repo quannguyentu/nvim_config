@@ -1,0 +1,13 @@
+cmp_luasnip
+cmp-nvim-lsp
+cmp-buffer
+cmp-path
+lazy.nvim
+mason.nvim
+friendly-snippets
+nvim-cmp
+mason-lspconfig.nvim
+lspkind.nvim
+LuaSnip
+nvim-lspconfig
+mini.nvim
