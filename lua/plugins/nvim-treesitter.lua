@@ -4,10 +4,10 @@ return {
   config = function()
     require("nvim-treesitter").setup({
       -- List of parsers to always install/update on startup
-      ensure_installed = { "lua", "vim", "vimdoc", "query", "python", "javascript", "rust" },
+      ensure_installed = { "lua", "vim", "vimdoc", "query", "python", "javascript", "rust", "markdown", "markdown_inline" },
 
       -- Install parsers synchronously (only applied to `ensure_installed`)
-      sync_install = false,
+      sync_install = true,
 
       -- Automatically install missing parsers when entering buffer
       auto_install = true,
