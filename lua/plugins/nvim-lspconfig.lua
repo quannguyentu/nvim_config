@@ -17,17 +17,17 @@ return {
     vim.diagnostic.config({
       virtual_text = {
         prefix = function(diagnostic)
-		local icons = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN]  = " ",
-            		[vim.diagnostic.severity.INFO]  = " ",
-            		[vim.diagnostic.severity.HINT]  = " ",
-		}
-		return icons[diagnostic.severity]
-	end,
-	}
+          local icons = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN]  = " ",
+            [vim.diagnostic.severity.INFO]  = " ",
+            [vim.diagnostic.severity.HINT]  = " ",
+          }
+          return icons[diagnostic.severity]
+        end,
+      }
 
-})
+    })
 
     -- Capabilities applied to every server (equivalent of servers["*"] in the
     -- original spec): disable dynamic registration for didChangeWatchedFiles

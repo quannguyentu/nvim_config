@@ -2,6 +2,8 @@
 
 Personal Neovim setup built with [lazy.nvim](https://github.com/folke/lazy.nvim).
 
+yes
+
 ## Requirements
 
 - Neovim >= 0.10
@@ -47,7 +49,6 @@ Plugins install automatically on first launch via lazy.nvim.
 | [mason.nvim](https://github.com/williamboman/mason.nvim) | Install LSP servers/linters/formatters |nvim-lspconfig.lua as dependancy |
 | [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) | Bridges mason + lspconfig |nvim-lspconfig.lua as dependancy |
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) | Autocompletion |  |
-| [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | Snippets | nvim-cmp.lua as dependancy |
 | [LuaSnip](https://github.com/L3MON4D3/LuaSnip) | Snippets | nvim-cmp.lua as dependancy |
 
 

@@ -13,6 +13,9 @@ return {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
 
+    -- Command-line completion
+    "hrsh7th/cmp-cmdline",
+
     -- Adds a ton of default snippets for various languages
     "rafamadriz/friendly-snippets",
 
@@ -45,11 +48,11 @@ return {
       -- Configure completion menu appearance (Nerd Fonts)
       formatting = {
         format = lspkind.cmp_format({
-          mode = "symbol_text", -- Show both icon and text
-          maxwidth = 50,        -- Prevent the menu from getting too wide
-          ellipsis_char = "...",-- Show ellipsis for truncated text
+          mode = "symbol_text",  -- Show both icon and text
+          maxwidth = 50,         -- Prevent the menu from getting too wide
+          ellipsis_char = "...", -- Show ellipsis for truncated text
           -- Optional: Override specific symbol kinds if you want custom icons
-          -- symbol_map = { 
+          -- symbol_map = {
           --   Text = "󰉿",
           --   Method = "󰆧",
           --   Function = "󰊕",
@@ -84,16 +87,16 @@ return {
         -- Scroll up/down in the documentation window
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
-        
+
         -- Trigger completion manually
         ["<C-Space>"] = cmp.mapping.complete(),
-        
+
         -- Abort completion
         ["<C-e>"] = cmp.mapping.abort(),
-        
+
         -- Accept completion. <C-y> is default, <CR> is also very common.
         -- Using <CR> will only confirm if a completion is selected, otherwise it acts as normal Enter.
-        ["<CR>"] = cmp.mapping.confirm({ select = true }), 
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
         -- Tab / Shift-Tab for navigating the menu or jumping through snippets
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -121,10 +124,10 @@ return {
 
       -- Define the sources for completion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },  -- LSP completions
-        { name = "luasnip" },   -- Snippet completions
-        { name = "buffer" },    -- Text inside current buffer
-        { name = "path" },      -- File paths
+        { name = "nvim_lsp" }, -- LSP completions
+        { name = "luasnip" },  -- Snippet completions
+        { name = "buffer" },   -- Text inside current buffer
+        { name = "path" },     -- File paths
       }),
     })
 

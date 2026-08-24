@@ -10,10 +10,14 @@ end
 
 return {
 	--tokyonight--
-	{"folke/tokyonight.nvim",lazy = false, priority = 1000},
-	{"sainnhe/everforest", lazy = false, priority = 1000,
-	config = function ()
-		use_theme("everforest")
-	end},
+	{ "folke/tokyonight.nvim", lazy = false, priority = 1000 },
+	{
+		"sainnhe/everforest",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			use_theme("everforest")
+		end
+	},
 
 }

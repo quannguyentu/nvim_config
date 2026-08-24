@@ -18,5 +18,6 @@ return {
       pickers = { find_files = { hidden = true } }, -- Example: show hidden files by default
     })
     telescope.load_extension("fzf")
+    telescope.load_extension("notify")
   end,
 }
