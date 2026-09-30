@@ -2,8 +2,6 @@
 
 Personal Neovim setup built with [lazy.nvim](https://github.com/folke/lazy.nvim).
 
-yes
-
 ## Requirements
 
 - Neovim >= 0.10
@@ -33,7 +31,6 @@ Plugins install automatically on first launch via lazy.nvim.
 
 ## Plugins
 
-> Add a new row here every time you add a plugin. Keep categories grouped; add a new category heading if none fit.
 
 ### Plugin Manager
 

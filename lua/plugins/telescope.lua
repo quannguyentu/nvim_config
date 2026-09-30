@@ -7,9 +7,9 @@ return {
   },
   keys = {
     { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
-    { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep" },
-    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
-    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+    { "<leader>fg", "<cmd>Telescope live_grep<cr>",  desc = "Live Grep" },
+    { "<leader>fb", "<cmd>Telescope buffers<cr>",    desc = "Find Buffers" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>",  desc = "Help Tags" },
   },
   config = function()
     local telescope = require("telescope")
@@ -18,6 +18,5 @@ return {
       pickers = { find_files = { hidden = true } }, -- Example: show hidden files by default
     })
     telescope.load_extension("fzf")
-    telescope.load_extension("notify")
   end,
 }
